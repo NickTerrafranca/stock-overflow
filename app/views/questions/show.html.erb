@@ -5,9 +5,9 @@
   <strong>Description</strong><br>
   <%= @question.description %><br>
 
-  <% if !@question.answers.empty? %>
+  <% unless @question.answers.empty? %>
     <strong>Answers</strong><br>
-    <% @question.answers.each do |q| %>
+    <% @question.answers.order('updated_at ASC').each do |q| %>
       <%= q.answer_body %>
     <%end%>
   <%end%>
