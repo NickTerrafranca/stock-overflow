@@ -6,10 +6,19 @@
   <%= @question.description %><br>
 
   <% unless @question.answers.empty? %>
-    <strong>Answers</strong><br>
+
     <% @question.answers.order('updated_at ASC').each do |q| %>
+    <br><strong>Answer</strong><br>
       <%= q.answer_body %>
     <%end%>
   <%end%>
 </p>
-<%= link_to "Back to all Questions", questions_path%>
+
+<h2>Answer this question</h2>
+<%= form_for [@question, @answer] do |f| %>
+  <%= f.label :answer_body %><br>
+  <%= f.text_area :answer_body %><br>
+  <%= f.submit %>
+<%end%>
+
+<br><%= link_to "Back to all Questions", questions_path %>
