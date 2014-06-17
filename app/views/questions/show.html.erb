@@ -1,0 +1,14 @@
+<p>
+  <strong>Title</strong><br>
+  <%= @question.title %><br>
+
+  <strong>Description</strong><br>
+  <%= @question.description %><br>
+
+  <% if !@question.answers.empty? %>
+    <strong>Answers</strong><br>
+    <% @question.answers.each do |q| %>
+      <%= q.answer_body %>
+    <%end%>
+  <%end%>
+</p>
