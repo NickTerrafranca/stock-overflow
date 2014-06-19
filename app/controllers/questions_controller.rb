@@ -30,7 +30,21 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     @question.update(question_params)
-    redirect_to question_path #@question
+    redirect_to question_path
+  end
+
+  def destroy
+    @question = Question.find(params[:id])
+    # binding.pry
+    @question.destroy
+    if @question.destroy
+      flash[:notice] = "Your entry was deleted!"
+      redirect_to '/questions'
+
+    else
+      flash.now[:notice] = "Your entry couldn't be deleted"
+      render @question #_path
+    end
   end
 
   private

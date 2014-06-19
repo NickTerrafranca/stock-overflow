@@ -1,5 +1,5 @@
 class Question < ActiveRecord::Base
-  has_many :answers
+  has_many :answers, dependent: :destroy
   validates :title, presence: true
   validates :description, presence: true
   validates_length_of :title, :minimum => 40, :message => "Title must be more than 40 characters long."
