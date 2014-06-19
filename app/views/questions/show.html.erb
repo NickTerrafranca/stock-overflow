@@ -18,7 +18,8 @@
 <%= form_for [@question, @answer] do |f| %>
   <%= f.label :answer_body %><br>
   <%= f.text_area :answer_body %><br>
-  <%= f.submit %>
+  <%= f.submit 'Submit' %>
 <%end%>
 
 <br><%= link_to "Back to all Questions", questions_path %>
+<br><%= link_to "Edit Questions", edit_question_path %>
