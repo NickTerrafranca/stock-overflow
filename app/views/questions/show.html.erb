@@ -7,7 +7,7 @@
 
   <% unless @question.answers.empty? %>
 
-    <% @question.answers.order('updated_at ASC').each do |q| %>
+    <% @question.answers.order('updated_at DESC').each do |q| %>
     <br><strong>Answer</strong><br>
       <%= q.answer_body %>
     <%end%>

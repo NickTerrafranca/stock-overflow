@@ -35,7 +35,6 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
-    # binding.pry
     @question.destroy
     if @question.destroy
       flash[:notice] = "Your entry was deleted!"
